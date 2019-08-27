@@ -84,19 +84,23 @@ object canelones {
 	var constante = 20
 
 	method salsa() { 
-		return constante + 5 
+		 constante = constante + 5 
 	}
 
 	method queso() { 
-		return constante + 7 
+		constante = constante + 7 
 	}
 	method quitarSalsa() { 
-		return constante - 5 
+		constante = constante - 5 
 	}
 
 	method quitarQueso() { 
-		return constante - 7 
-	}			
+		constante = constante - 7 
+	}	
+	
+	method energiaQueOtorga() { 
+		return constante
+	}		
 }
 
 

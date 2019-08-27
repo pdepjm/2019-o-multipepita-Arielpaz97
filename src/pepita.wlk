@@ -1,6 +1,9 @@
 object pepita {
 	var energia = 100
-
+	
+	method energia() {
+		return energia
+	}
 	method estaCansada() {
 		return energia < 50
 	}
@@ -9,8 +12,40 @@ object pepita {
 		energia -= 10 + kms
 	}
 
-	method come(comida) {
+	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
+	}
+
+	method estaFeliz(){
+		return energia.between(500,1000)
+	}
+
+	method cuantoQuiereVolar(){
+		return self.agregados() + energia / 5
+	}
+
+	method agregados(){
+		var kmAgregados = 0
+		if(energia.between(300,400)){
+			kmAgregados = kmAgregados + 10
+		}
+		if(energia % 20 == 0){
+			kmAgregados = kmAgregados + 15
+		}
+		return kmAgregados
+	}
+	
+	method salirAComer(){
+		self.vola(10)
+		self.comer(alpiste)
+	}
+	method haceLoQueQuieras(){
+		if( self.estaCansada() ){
+			self.comer(alpiste)
+		}
+		if( self.estaFeliz() ){
+			self.vola(8)
+		}
 	}
 }
 
@@ -30,4 +65,48 @@ object manzana {
 	method energiaQueOtorga() { 
 		return 50
 	}	
+}
+
+object mijo {
+	var energiaDeMijo
+	method mojarse() { 
+		energiaDeMijo = 15
+	}	
+	method secarse() { 
+		energiaDeMijo = 20
+	}
+	method energiaQueOtorga() { 
+		return energiaDeMijo
+	}
+}
+
+object canelones {
+	var constante = 20
+
+	method salsa() { 
+		return constante + 5 
+	}
+
+	method queso() { 
+		return constante + 7 
+	}
+	method quitarSalsa() { 
+		return constante - 5 
+	}
+
+	method quitarQueso() { 
+		return constante - 7 
+	}			
+}
+
+
+// Parte 3
+
+object roque{
+	method entrenar(){
+		pepita.vola(10)
+		pepita.comer(alpiste)
+		pepita.vola(5)
+		pepita.haceLoQueQuieras()
+	}
 }

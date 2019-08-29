@@ -36,8 +36,9 @@ object pepita {
 	}
 	
 	method salirAComer(){
-		self.vola(10)
+		self.vola(5)
 		self.comer(alpiste)
+		self.vola(5)
 	}
 	method haceLoQueQuieras(){
 		if( self.estaCansada() ){
